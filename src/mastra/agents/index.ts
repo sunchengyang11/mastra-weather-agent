@@ -1,33 +1,16 @@
-import { createAgent } from "@mastra/core";
+import { Agent } from "@mastra/core";
 
-/**
- * 天気を返すだけの Agent（ダミー）
- */
-const WeatherAgent = createAgent({
-  name: "WeatherAgent",
-  description: "都市名から天気情報を返す Agent",
-  run: async ({ input }) => {
-    const city = input as string;
-    return `${city} の天気は「晴れ ☀️」です`;
-  },
+export const 天気取得エージェント = new Agent({
+  name: "天気取得エージェント",
+  instructions: "都市名を受け取り、現在の天気を返してください。",
 });
 
-/**
- * 天気を元にコメントする Agent
- */
-const AdviceAgent = createAgent({
-  name: "AdviceAgent",
-  description: "天気情報を元にアドバイスを返す Agent",
-  run: async ({ input }) => {
-    const weather = input as string;
-    return `${weather}。洗濯日和ですね。`;
-  },
+export const 判断エージェント = new Agent({
+  name: "判断エージェント",
+  instructions: "天気情報をもとに、外出するかどうかを判断してください。",
 });
 
-/**
- * ⚠️ 必ずまとめて export
- */
 export const agents = {
-  WeatherAgent,
-  AdviceAgent,
+  天気取得エージェント,
+  判断エージェント,
 };
