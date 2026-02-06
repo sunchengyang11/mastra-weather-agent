@@ -1,13 +1,14 @@
-import { createMastra } from "@mastra/core";
 import { agents } from "./agents";
 import { workflows } from "./workflows";
+import { tools } from "./tools";
+import { scorers } from "./scorers";
 
-export const mastra = createMastra({
-  agents,
-  workflows,
+/**
+ * Mastra Cloud 最小可运行入口
+ * ⚠️ 不使用 createMastra（会强制引入 libsql）
+ */
 
-  // 🔴 关键：明确不使用 storage
-  storage: {
-    type: "memory"
-  }
-});
+export { agents };
+export { workflows };
+export { tools };
+export { scorers };
