@@ -4,11 +4,11 @@ import { tools } from "./tools";
 import { scorers } from "./scorers";
 
 /**
- * Mastra Cloud 最小可运行入口
- * ⚠️ 不使用 createMastra（会强制引入 libsql）
+ * Mastra Cloud が認識する唯一のエクスポート
  */
-
-export { agents };
-export { workflows };
-export { tools };
-export { scorers };
+export const mastra = {
+  agents,
+  workflows,
+  tools,
+  scorers,
+};
