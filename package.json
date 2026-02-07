@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@mastra/core": "0.1.26",
-    "@mastra/evals": "0.1.26",
     "@mastra/loggers": "0.1.26"
   },
   "devDependencies": {
