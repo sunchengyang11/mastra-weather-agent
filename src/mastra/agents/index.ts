@@ -1,22 +1,35 @@
-import { Agent } from "@mastra/core";
+import { Agent } from '@mastra/core/agent';
+import { weatherTool } from '../tools';
 
 /**
- * 天気を取得するエージェント
+ * Agent 1:
+ * 只负责调用 tool 获取天气数据
  */
-export const weatherAgent = new Agent({
-  name: "天気エージェント",
-  instructions: "都市名を受け取り、現在の天気を簡単な日本語で返してください。"
+export const weatherFetcherAgent = new Agent({
+  id: 'weather-fetcher-agent',
+  name: 'Weather Fetcher Agent',
+  instructions: `
+You fetch current weather information for a given city.
+Always use the weatherTool to get the data.
+Return the raw weather result.
+`,
+  model: process.env.MODEL || 'openai/gpt-4o',
+  tools: {
+    weatherTool,
+  },
 });
 
 /**
- * 行動アドバイスを考えるエージェント
+ * Agent 2:
+ * 负责把天气数据整理成用户可读的回答
  */
-export const plannerAgent = new Agent({
-  name: "計画エージェント",
-  instructions: "天気の情報をもとに、外出に関するアドバイスを日本語で出してください。"
+export const weatherResponderAgent = new Agent({
+  id: 'weather-responder-agent',
+  name: 'Weather Responder Agent',
+  instructions: `
+You are a helpful assistant.
+Based on the provided weather data, respond to the user clearly and concisely.
+Include temperature and general conditions.
+`,
+  model: process.env.MODEL || 'openai/gpt-4o',
 });
-
-export const agents = {
-  weatherAgent,
-  plannerAgent
-};
