@@ -1,14 +1,8 @@
-import { agents } from "./agents";
-import { workflows } from "./workflows";
-import { tools } from "./tools";
-import { scorers } from "./scorers";
+import { Mastra } from '@mastra/core/mastra';
+import { weatherWorkflow } from './workflows';
 
-/**
- * Mastra Cloud が認識する唯一のエクスポート
- */
-export const mastra = {
-  agents,
-  workflows,
-  tools,
-  scorers,
-};
+export const mastra = new Mastra({
+  workflows: {
+    weatherWorkflow,
+  },
+});
