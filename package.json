@@ -1,0 +1,25 @@
+{
+  "name": "mastra-weather-agent",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "mastra dev",
+    "build": "mastra build",
+    "start": "mastra start"
+  },
+  "dependencies": {
+    "@mastra/core": "latest",
+    "@mastra/memory": "latest",
+    "@mastra/observability": "latest",
+    "@mastra/loggers": "latest",
+    "@mastra/evals": "latest",
+    "@mastra/libsql": "latest",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "mastra": "latest",
+    "@types/node": "^22.19.7",
+    "typescript": "^5.9.3"
+  }
+}
