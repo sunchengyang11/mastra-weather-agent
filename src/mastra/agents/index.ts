@@ -1,16 +1,22 @@
 import { Agent } from "@mastra/core";
 
-export const 天気取得エージェント = new Agent({
-  name: "天気取得エージェント",
-  instructions: "都市名を受け取り、現在の天気を返してください。",
+/**
+ * 天気を取得するエージェント
+ */
+export const weatherAgent = new Agent({
+  name: "天気エージェント",
+  instructions: "都市名を受け取り、現在の天気を簡単な日本語で返してください。"
 });
 
-export const 判断エージェント = new Agent({
-  name: "判断エージェント",
-  instructions: "天気情報をもとに、外出するかどうかを判断してください。",
+/**
+ * 行動アドバイスを考えるエージェント
+ */
+export const plannerAgent = new Agent({
+  name: "計画エージェント",
+  instructions: "天気の情報をもとに、外出に関するアドバイスを日本語で出してください。"
 });
 
 export const agents = {
-  天気取得エージェント,
-  判断エージェント,
+  weatherAgent,
+  plannerAgent
 };
